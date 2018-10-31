@@ -10,15 +10,59 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::view('/','home');
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
 
-Route::post('/submitpost','FormController@showpost')->name('show.post');
+Route::name('tugas1.')->group(function(){
+	Route::post('/tugas1/submitpost','FormController@showpost')->name('show.post');
+	Route::put('/tugas1/submitput','FormController@showpost')->name('show.put');
+	Route::view('/tugas1/home','tugas1.tugas1')->name('home');
+	Route::name('form.')->group(function(){
+		Route::view('/tugas1/formpost','tugas1.form')->name('post');
+		Route::view('/tugas1/formput','tugas1.formput')->name('put');
+	});
+});
 
-Route::put('/submitput','FormController@showpost')->name('show.put');
 
-Route::view('/formpost','form')->name('form.post');
 
-Route::view('/formput','formput')->name('form.put');
+
+
+Route::name('tugas2.')->group(function(){
+	Route::post('/tugas2/submitpost','FormController@showpost_2')->name('show.post');
+	Route::put('/tugas2/submitput','FormController@showpost_2')->name('show.put');
+
+
+	Route::name('form.')->group(function(){
+		Route::view('/tugas2/formpost','tugas2.forms.form')->name('post');
+		Route::view('/tugas2/formput','tugas2.forms.formput')->name('put');
+		Route::view('/tugas2/formresult','tugas2.forms.result')->name('result');
+	});
+
+	Route::name('ui-element.')->group(function(){
+		Route::view('/tugas2/panel-wells','tugas2.uiElement.panelandwells')->name('panel-wells');
+		Route::view('/tugas2/buttons','tugas2.uiElement.buttons')->name('buttons');
+		Route::view('/tugas2/notification','tugas2.uiElement.notif')->name('notif');
+		Route::view('/tugas2/typography','tugas2.uiElement.typography')->name('typography');
+		Route::view('/tugas2/icons','tugas2.uiElement.icons')->name('icons');
+		Route::view('/tugas2/grid','tugas2.uiElement.grid')->name('grid');
+	});
+
+	Route::name('sample.')->group(function(){
+		Route::view('/tugas2/blank','tugas2.samplePages.blank')->name('blank');
+		Route::view('/tugas2/login','tugas2.samplePages.login')->name('login');
+	});
+
+	Route::name('charts.')->group(function(){
+		Route::view('/tugas2/flot','tugas2.charts.flot')->name('flot');
+		Route::view('/tugas2/morris','tugas2.charts.morris')->name('morris');
+	});
+
+	Route::name('dashboard.')->group(function(){
+		Route::view('/tugas2/dashboard','tugas2.dashboard.dashboard')->name('dashboard');
+	});
+
+	Route::name('tables.')->group(function(){
+		Route::view('/tugas2/table','tugas2.tables.table')->name('table');
+	});
+});
+

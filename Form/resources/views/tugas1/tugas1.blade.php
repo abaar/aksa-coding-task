@@ -9,10 +9,10 @@
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4 row" style="margin-top: 45vh">
 				<div class="col-md-5">
-					<button class="col-md-12 btn btn-primary" onclick=redirect('{{ Route('tugas1.home') }}')>Tugas1</button>
+					<button class="col-md-12 btn btn-primary" onclick=redirect('{{route('tugas1.form.post')}}') style="background-color: red">POST</button>
 				</div>
 				<div class="col-md-5 col-md-offset-1">
-					<button class="col-md-12 btn btn-primary" onclick=redirect('{{ Route('tugas2.dashboard.dashboard') }}')>Tugas2</button>
+					<button class="col-md-12 btn btn-primary" onclick=redirect('{{route('tugas1.form.put')}}') style="background-color: red">PUT</button>
 				</div>
 			</div>
 		</div>
