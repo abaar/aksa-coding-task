@@ -66,3 +66,13 @@ Route::name('tugas2.')->group(function(){
 	});
 });
 
+Route::name('tugas3.')->group(function(){
+	Route::view('/tugas3/dashboard','tugas3.dashboard.dashboard')->name('dashboard');
+
+	Route::post('/tugas3/formpost','FormController@showpost_3')->name('show.post');
+
+	Route::name('form.')->group(function(){
+		Route::view('/tugas3/formpost','tugas3.forms.form')->name('post');
+		Route::view('/tugas3/formresult','tugas3.forms.result')->name('result');
+	});
+});
