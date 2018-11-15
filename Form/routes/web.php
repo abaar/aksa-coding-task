@@ -76,3 +76,10 @@ Route::name('tugas3.')->group(function(){
 		Route::view('/tugas3/formresult','tugas3.forms.result')->name('result');
 	});
 });
+
+
+Route::name('tugas4.')->group(function(){
+	Route::get('/tugas4/dashboard','tugas4Controller@showform')->name('show.form');
+	Route::get('/tugas4/input/formproduct','tugas4Controller@inputform')->name('input.form');
+	Route::get('/tugas4/show/product','tugas4Controller@showproduct')->name('show.product');
+});
