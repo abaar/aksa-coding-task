@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TableRelationProductToCategoryTugas4 extends Migration
+class CreateSoftDeleteArticles extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class TableRelationProductToCategoryTugas4 extends Migration
      */
     public function up()
     {
-        Schema::table('product', function (Blueprint $table) {
+        Schema::table('articles', function (Blueprint $table) {
             //
-            // $table->foreign('category_id')->references('id')->on('category')->onUpdate('cascade')->onDelete('cascade');
+            $table->softDeletes();
         });
     }
 
@@ -26,8 +26,9 @@ class TableRelationProductToCategoryTugas4 extends Migration
      */
     public function down()
     {
-        // Schema::table('product', function (Blueprint $table) {
-        //     $table->dropForeign('category_id');
-        // });
+        Schema::table('articles', function (Blueprint $table) {
+            //
+            $table->dropSoftDeletes();
+        });
     }
 }

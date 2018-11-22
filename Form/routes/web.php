@@ -83,3 +83,11 @@ Route::name('tugas4.')->group(function(){
 	Route::get('/tugas4/input/formproduct','tugas4Controller@inputform')->name('input.form');
 	Route::get('/tugas4/show/product','tugas4Controller@showproduct')->name('show.product');
 });
+
+
+Route::name('tugas5.')->group(function(){
+	Route::get('/tugas5/dashboard','tugas5Controller@showform')->name('show.form');
+	Route::get('/tugas5/input/article','tugas5Controller@inputarticle')->name('input.form');
+	Route::get('/tugas5/show/article','tugas5Controller@showarticle')->name('show.article');
+	Route::get('/tugas5/show/category','tugas5Controller@showcategory')->name('show.category');
+});

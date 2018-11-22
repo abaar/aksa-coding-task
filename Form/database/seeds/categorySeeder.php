@@ -12,14 +12,12 @@ class categorySeeder extends Seeder
     public function run()
     {
         //
-        DB::table('category')->insert([
-        	'name'=>'tahu',
-        	'description' => 'sebuah tahu'
+        DB::table('categories')->insert([
+        	'name'=>'pilem',
         ]);
 
-        DB::table('category')->insert([
-        	'name'=>'tempe',
-        	'description'=>'sebuah tempe'
+        DB::table('categories')->insert([
+        	'name'=>'maeman',
         ]);
     }
 }

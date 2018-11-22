@@ -13,14 +13,14 @@ class CreateProductTugas4 extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('category_id')->unsigned();
-            $table->string('name',32);
-            $table->text('description')->nullable();
-            $table->integer('price')->nullable()->default(0);
-            $table->timestamps();
-        });
+        // Schema::create('product', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->integer('category_id')->unsigned();
+        //     $table->string('name',32);
+        //     $table->text('description')->nullable();
+        //     $table->integer('price')->nullable()->default(0);
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -30,6 +30,6 @@ class CreateProductTugas4 extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product');
+        // Schema::dropIfExists('product');
     }
 }

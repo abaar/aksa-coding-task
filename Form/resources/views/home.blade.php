@@ -30,6 +30,7 @@
 							<option value="{{ Route('tugas2.dashboard.dashboard') }}">Tugas2</option>
 							<option value="{{ Route('tugas3.dashboard') }}">Tugas3</option>
 							<option value="{{ Route('tugas4.show.form') }}">Tugas4</option>
+							<option value="{{ Route('tugas5.show.form') }}">Tugas5</option>
 						</select>
 					</div>
 					<button class="btn btn-primary col-md-12" onclick="go()">Go</button>	

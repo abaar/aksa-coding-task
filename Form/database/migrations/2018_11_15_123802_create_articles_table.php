@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoryTugas4 extends Migration
+class CreateArticlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateCategoryTugas4 extends Migration
      */
     public function up()
     {
-        // Schema::create('category', function (Blueprint $table) {
-        //     $table->increments('id');
-        //     $table->string('name',32);
-        //     $table->text('description')->nullable();
-        //     $table->timestamps();
-        // });
+        Schema::create('articles', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title', 64);
+            $table->text('body');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -28,6 +28,6 @@ class CreateCategoryTugas4 extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('category');
+        Schema::dropIfExists('articles');
     }
 }
