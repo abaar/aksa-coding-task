@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Aksa Academy - Tugas 5</title>
+	<title>Aksa Academy - Tugas 6</title>
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 	<style>
 		table {
@@ -30,7 +30,7 @@
 					<br>
 				</div>
 				<div class="col-md-offset-10" style="float:right; margin-bottom: 2%" >
-					<button class="btn btn-primary" onclick="redirect('{{Route('tugas5.show.form')}}')">Back</button>
+					<button class="btn btn-primary" onclick="redirect('{{Route('tugas6.show.form')}}')">Back</button>
 				</div>
 				<div style="margin-top:2%">
 					<table>

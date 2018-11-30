@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Aksa Academy - Tugas 5</title>
+	<title>Aksa Academy - Tugas 6</title>
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 	<style>
 		table {
@@ -24,13 +24,13 @@
 <body>
 	<div class="container-fluid" style="margin-top:1%">
 		<div class="row">
-			<div class="col-md-4 col-md-offset-4">
+			<div class="col-md-8 col-md-offset-2">
 				<div>
 					<h1>Article's Data!</h1>
 					<br>
 				</div>
 				<div class="col-md-offset-10" style="float:right; margin-bottom: 2%" >
-					<button class="btn btn-primary" onclick="redirect('{{Route('tugas5.show.form')}}')">Back</button>
+					<button class="btn btn-primary" onclick="redirect('{{Route('tugas6.show.form')}}')">Back</button>
 				</div>
 				<div style="margin-top:2%">
 					<table>
@@ -39,9 +39,10 @@
 							<th>Title</th>
 							<th>Category</th>
 							<th>Body</th>
+							<th width="80">Edit</th>
+							<th width="80">Delete</th>
 						</tr>
 						@foreach ($datas as $data)
-							@for ($i = 0; $i < sizeof($data->category); $i++)
 								<tr>
 									<td>
 										{{ $data->id }}
@@ -50,7 +51,13 @@
 										{{ $data->title }}
 									</td>
 									<td>
+									@for($i=0;$i<sizeof($data->category);$i++)
+										@if($i>0)
+											,
+										@endif
 										{{ $data->category[$i]->name }}
+
+									@endfor
 									</td>
 									<td>
 										
@@ -60,8 +67,15 @@
 											{{ $data->body }}
 										@endif
 									</td>
+									<td>
+										
+										<button class="btn btn-warning col-md-12" onclick="redirect('{{ Route('tugas6.edit.article',['id'=>$data->id]) }}')">Edit</button>
+
+									</td>
+									<td>
+										<button class="btn btn-danger col-md-12" onclick="redirect('{{ Route('tugas6.delete.article',['id'=>$data->id]) }}')">Delete</button>
+									</td>
 								</tr>
-							@endfor
 						@endforeach
 					</table>
 				</div>

@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/','home');
+Route::view('/','home2');
 
 
 Route::name('tugas1.')->group(function(){
@@ -91,3 +91,39 @@ Route::name('tugas5.')->group(function(){
 	Route::get('/tugas5/show/article','tugas5Controller@showarticle')->name('show.article');
 	Route::get('/tugas5/show/category','tugas5Controller@showcategory')->name('show.category');
 });
+Auth::routes();
+
+
+
+Route::name('tugas6.')->group(function(){
+	Route::get('/tugas6/dashboard','tugas6Controller@showform')->name('show.form');
+
+	Route::get('/tugas6/show/article','tugas6Controller@showarticle')->name('show.article');
+
+	Route::get('/tugas6/show/category','tugas6Controller@showcategory')->name('show.category');
+
+
+	Route::group(['middleware'=>['auth']],function(){
+		Route::get('/tugas6/input/article','tugas6Controller@inputarticle')->name('input.form');
+
+		Route::get('/tugas6/edit/article/{id}','tugas6Controller@editarticle')->name('edit.article');
+
+		Route::get('/tugas6/edit/article/{id}/save','tugas6Controller@saveeditedarticle')->name('save.article');
+
+		Route::get('/tugas6/delete/article/{id}','tugas6Controller@deletearticle')->name('delete.article');
+
+		Route::get('/tugas6/logout',function(){
+			Auth::logout();
+			return redirect()->route('tugas6.show.form');
+		})->name('logout');
+	});
+
+});
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+//FACEBOOK SOCIALITE
+Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
+Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
